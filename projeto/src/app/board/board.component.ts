@@ -53,20 +53,32 @@ export class BoardComponent implements OnInit {
         this.lock = true;
         console.log(this.lock);
         this.status = 'VENCEDOR!';
-        alert('CABO');
+        alert('Você ganhou, ' + this.turn + '! Aperte o botão "Reset" para um novo jogo');
       }
     }
 
+    // velha
+    if (!this.draw()) {
+      this.lock = true;
+      this.status = 'DEU VELHA!';
+      this.turn = '';
+      alert('Velha! Aperte o botão "Reset" para um novo jogo');
+      }
+
     // muda vez
-    if (this.fill === 'X') {
+    if (this.fill === 'X' && this.draw()) {
       this.fill = 'O';
       this.turn = this.fill;
-    } else {
+    } else if (this.draw()){
       this.fill = 'X';
       this.turn = this.fill;
     }
-    console.log(this.lock);
     return false;
+  }
+
+  // corre o board, verificando se existem valores vazios. Se estiverem todos preenchidos = true
+  draw(): boolean {
+    return this.board.filter(s => s.value === '').length > 0;
   }
 
   start() {
