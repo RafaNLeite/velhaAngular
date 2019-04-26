@@ -46,7 +46,7 @@ export class BoardComponent implements OnInit {
       const foundWinner = this.board[pattern[0]].value === turn
         && this.board[pattern[1]].value === turn
         && this.board[pattern[2]].value === turn;
-      if (foundWinner) {
+      if (foundWinner && !this.draw) {
         for (const index of pattern) {
           this.board[index].winner = true;
         }
