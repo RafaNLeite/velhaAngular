@@ -1,5 +1,5 @@
-<div id="jogo" [class.locked]="boardLocked || gameOver">
-  <div class="linha" *ngFor="let casa of board" 
+<div id="jogo" >
+  <div class="linha" [class.locked]="lock" *ngFor="let casa of board" 
     class="casa" 
     [class.checked]="casa.value != ''"
     (click)="play(this.casa)">
@@ -7,4 +7,6 @@
   </div>
   <input type="button" class="botao" name="limpar" value="Reset" (click)="start()" />
 </div>
-<div class="direita"><p>É a vez de:</p> <p id="mostra" class="vez">{{vez.value}}</p></div> 
+<div class="direita">
+  <p>{{status}}</p> <p id="mostra" class="vez">{{turn}}</p>
+</div> 

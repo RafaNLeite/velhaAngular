@@ -2,6 +2,10 @@
     cursor: default;
 }
 
+#jogo .locked {
+    pointer-events: none;
+}
+
 .vez {
     font-size: 70px;
 }
