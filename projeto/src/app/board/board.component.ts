@@ -60,7 +60,7 @@ export class BoardComponent implements OnInit {
     // velha
     if (!this.draw()) {
       this.lock = true;
-      this.status = 'DEU VELHA!';
+      this.status = 'DEU VELHA';
       this.turn = '';
       alert('Velha! Aperte o botão "Reset" para um novo jogo');
       }
