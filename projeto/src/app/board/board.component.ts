@@ -46,7 +46,7 @@ export class BoardComponent implements OnInit {
       const foundWinner = this.board[pattern[0]].value === turn
         && this.board[pattern[1]].value === turn
         && this.board[pattern[2]].value === turn;
-      if (foundWinner && !this.draw) {
+      if (foundWinner && this.draw) {
         for (const index of pattern) {
           this.board[index].winner = true;
         }
@@ -69,7 +69,7 @@ export class BoardComponent implements OnInit {
     if (this.fill === 'X' && this.draw()) {
       this.fill = 'O';
       this.turn = this.fill;
-    } else if (this.draw()){
+    } else if (this.draw()) {
       this.fill = 'X';
       this.turn = this.fill;
     }
@@ -89,6 +89,7 @@ export class BoardComponent implements OnInit {
     ];
     this.status = 'É a vez de: ';
     this.lock = false;
+    this.turn = this.fill;
   }
 
 }
